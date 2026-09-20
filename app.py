@@ -4,7 +4,7 @@ import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 # --- 1. FUZZY LOGIC SYSTEM ---
 # Fuzzification: Define inputs (temperature, battery drain) and output (risk)
