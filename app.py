@@ -37,13 +37,13 @@ risk_sim = ctrl.ControlSystemSimulation(risk_ctrl)
 st.title("📱 Hardware Triage & Health Analyzer")
 st.write("Describe your device's symptoms (e.g., 'My phone gets super hot when gaming and the battery dies in an hour').")
 
-api_key = st.text_input("Enter Google Gemini API Key:", type="password")
+
 symptoms = st.text_area("Device Symptoms:")
 
-if st.button("Analyze Hardware") and api_key and symptoms:
+if st.button("Analyze Hardware") and symptoms:
     try:
         # LangChain Reasoning: Extract numerical inputs from free text
-        llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
+        llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
         prompt = PromptTemplate(
             input_variables=["symptoms"],
             template="Analyze the following hardware symptoms. Estimate the device's temperature severity (0-100) and battery drain severity (0-100). Return ONLY a valid JSON object with keys 'temperature' and 'drain'. Symptoms: {symptoms}"
