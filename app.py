@@ -31,7 +31,7 @@ risk_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
 risk_sim = ctrl.ControlSystemSimulation(risk_ctrl)
 
 # --- 2. STREAMLIT UI & LANGCHAIN ---
-st.title("📱 Hardware Triage & Health Analyzer")
+st.title("Hardware Triage & Health Analyzer")
 st.write("Describe your device's symptoms (e.g., 'My phone gets super hot when gaming and the battery dies in an hour').")
 
 symptoms = st.text_area("Device Symptoms:")
@@ -64,7 +64,7 @@ if st.button("Analyze Hardware") and symptoms:
         st.write(f"### Fuzzy Logic Risk Score: **{final_score:.2f} / 100**")
         
         if final_score > 75:
-            st.error("Severe Degradation: A manual battery boost or a deep motherboard diagnostic is highly recommended before the device bricks.")
+            st.error("Severe Degradation: A manual battery boost with bare wires or a deep motherboard diagnostic is highly recommended before the device bricks.")
         elif final_score > 50:
             st.warning("Moderate Degradation: You may need to apply fresh thermal pads or check for idle drain.")
         else:
