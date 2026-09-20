@@ -5,6 +5,7 @@ import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
+import google.generativeai as genai
 
 # --- 1. FUZZY LOGIC SYSTEM ---
 temp = ctrl.Antecedent(np.arange(0, 101, 1), 'temperature')
@@ -38,11 +39,10 @@ symptoms = st.text_area("Device Symptoms:")
 
 if st.button("Analyze Hardware") and symptoms:
     try:
-        # Pull the secret API key from Streamlit Settings
         api_key = st.secrets["GOOGLE_API_KEY"]
         
-        # LangChain Reasoning
-        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
+        # Trying the '-latest' alias to bypass the v1beta error
+        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", google_api_key=api_key)
         prompt = PromptTemplate(
             input_variables=["symptoms"],
             template="Analyze the following hardware symptoms. Estimate the device's temperature severity (0-100) and battery drain severity (0-100). Return ONLY a valid JSON object with keys 'temperature' and 'drain'. Symptoms: {symptoms}"
@@ -73,3 +73,10 @@ if st.button("Analyze Hardware") and symptoms:
 
     except Exception as e:
         st.error(f"Error during processing: {e}")
+        st.write("### Diagnostic Info: Available Models")
+        try:
+            genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+            models = [m.name.replace('models/', '') for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+            st.write("Your API key specifically has access to these models:", models)
+        except Exception as diag_e:
+            st.error(f"Diagnostic failed: {diag_e}")
