@@ -42,7 +42,7 @@ if st.button("Analyze Hardware") and symptoms:
         api_key = st.secrets["GOOGLE_API_KEY"]
         
         # Trying the '-latest' alias to bypass the v1beta error
-        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", google_api_key=api_key)
+        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=api_key)
         prompt = PromptTemplate(
             input_variables=["symptoms"],
             template="Analyze the following hardware symptoms. Estimate the device's temperature severity (0-100) and battery drain severity (0-100). Return ONLY a valid JSON object with keys 'temperature' and 'drain'. Symptoms: {symptoms}"
