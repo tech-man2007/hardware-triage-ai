@@ -4,3 +4,4 @@ langchain-google-genai
 scikit-fuzzy
 numpy
 scipy
+networkx
