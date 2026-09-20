@@ -43,7 +43,7 @@ symptoms = st.text_area("Device Symptoms:")
 if st.button("Analyze Hardware") and api_key and symptoms:
     try:
         # LangChain Reasoning: Extract numerical inputs from free text
-        llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
+        llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=api_key)
         prompt = PromptTemplate(
             input_variables=["symptoms"],
             template="Analyze the following hardware symptoms. Estimate the device's temperature severity (0-100) and battery drain severity (0-100). Return ONLY a valid JSON object with keys 'temperature' and 'drain'. Symptoms: {symptoms}"
