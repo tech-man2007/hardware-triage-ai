@@ -23,9 +23,9 @@ risk['low'] = fuzz.trimf(risk.universe, [0, 0, 40])
 risk['moderate'] = fuzz.trimf(risk.universe, [30, 50, 70])
 risk['high'] = fuzz.trimf(risk.universe, [60, 100, 100])
 
-rule1 = ctrl.Rule(temp['normal'] & drain['slow'], risk['low'])
+rule1 = ctrl.Rule(temp['normal'] | drain['slow'], risk['low'])
 rule2 = ctrl.Rule(temp['warm'] | drain['moderate'], risk['moderate'])
-rule3 = ctrl.Rule(temp['critical'] & drain['fast'], risk['high'])
+rule3 = ctrl.Rule(temp['critical'] | drain['fast'], risk['high'])
 
 risk_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
 risk_sim = ctrl.ControlSystemSimulation(risk_ctrl)
