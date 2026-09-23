@@ -81,6 +81,16 @@ GOOGLE_API_KEY = "GEMINI_API_KEY"
 
 ---
 
-## 🖼️ Application Screenshot
-![Hardware Triage AI Screenshot](screenshot.jpg)
+## 🖼️ Application Screenshots
 
+### 1. Normal Hardware State (Low Risk)
+![Stable Hardware Analysis](screenshot1.jpg)
+- **Input:** *"My phone doesn't gets super hot when gaming and the battery dies works efficiently"*[span_0](start_span)[span_0](end_span)
+- **LangChain Parameters:** `temperature: 5`, `drain: 5`[span_1](start_span)[span_1](end_span)
+- **Fuzzy Logic Risk Score:** `13.45 / 100` (Stable)[span_2](start_span)[span_2](end_span)
+
+### 2. Severe Hardware Degradation (High Risk)
+![Severe Degradation Analysis](screenshot2.jpg)
+- **Input:** *"My phone gets super hot when gaming and the battery dies in an hour"*[span_3](start_span)[span_3](end_span)
+- **LangChain Parameters:** `temperature: 90`, `drain: 95`[span_4](start_span)[span_4](end_span)
+- **Fuzzy Logic Risk Score:** `86.48 / 100` (Severe Risk)[span_5](start_span)[span_5](end_span)
