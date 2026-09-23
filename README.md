@@ -5,7 +5,7 @@
 **Class / Division:** TY IT  
 **Subject:** IKS Individual Project  
 **Live Deployment Link:** [https://hardware-triage-ai-jagan.streamlit.app](https://hardware-triage-ai-jagan.streamlit.app)  
-**GitHub Repository:** [https://github.com/your-username/hardware-triage-ai](https://github.com/your-username/hardware-triage-ai)
+**GitHub Repository:** [https://github.com/tech-man2007/hardware-triage-ai](https://github.com/tech-man2007/hardware-triage-ai)
 
 ---
 
@@ -42,8 +42,7 @@ The application requires a Google Gemini API key passed securely via environment
 
 ```toml
 # .streamlit/secrets.toml (Streamlit Cloud Secrets)
-GOOGLE_API_KEY = "YOUR_ACTUAL_GEMINI_API_KEY"
-GOOGLE_API_KEY = "YOUR_ACTUAL_GEMINI_API_KEY"
+GOOGLE_API_KEY = "GEMINI_API_KEY"
 ```
 
 ---
