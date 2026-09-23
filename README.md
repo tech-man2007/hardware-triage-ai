@@ -51,7 +51,7 @@ GOOGLE_API_KEY = "GEMINI_API_KEY"
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/hardware-triage-ai.git
+   git clone https://github.com/tech-man2007/hardware-triage-ai.git
    cd hardware-triage-ai
    ```
 
@@ -63,7 +63,7 @@ GOOGLE_API_KEY = "GEMINI_API_KEY"
 3. **Configure Local Secret:**
    Create a `.streamlit/secrets.toml` file in the root directory and add your API key:
    ```toml
-   GOOGLE_API_KEY = "your-api-key-here"
+   GOOGLE_API_KEY = "api-key-here"
    ```
 
 4. **Run the Application:**
@@ -82,16 +82,5 @@ GOOGLE_API_KEY = "GEMINI_API_KEY"
 ---
 
 ## 🖼️ Application Screenshot
-```
-+-------------------------------------------------------+
-|  📱 Hardware Triage & Health Analyzer                 |
-|  [ Text Box: Phone gets super hot... ]                |
-|  ( Analyze Hardware )                                 |
-|                                                       |
-|  LangChain Extraction:                                |
-|  { "temperature": 75, "drain": 90 }                   |
-|                                                       |
-|  Fuzzy Logic Risk Score: 84.50 / 100                  |
-|  [🚨 Severe Degradation: Manual diagnostic required]  |
-+-------------------------------------------------------+
-```
+![Hardware Triage AI Screenshot](screenshot.jpg)
+
